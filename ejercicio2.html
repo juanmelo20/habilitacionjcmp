@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="ingrese texto a evaluar" id="texto">
+    <button onclick="deletrear()">DELETREAR</button>
+    <button onclick="recargar()">RECARGAR PAGINA</button>
+    <h1 id="cant"></h1>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        
+        function deletrear(){
+      
+            let texto = $("#texto").val();
+    
+            let arraytext = texto.split("");
+            $("#cant").html('EL TEXTO TIENE '+arraytext.length+' CARACTERES');
+            
+            if (arraytext==0){
+                Swal.fire('No hay texto en la caja')
+            }
+
+            const impresion = document.querySelector('body');
+            
+            for (var i = 0; i < arraytext.length; i++) {
+                const letra = document.createElement('p');
+
+                letra.textContent=arraytext[i];
+
+                impresion.appendChild(letra);
+            }
+           
+        }
+    </script>
+    <style>
+        body{
+            background-color: beige;
+        }
+        p{
+            font-size: 40px;
+            position: relative;
+            
+        }
+        p:hover{
+            background-color: aqua;
+        }
+    </style>
+</body>
+</html>
