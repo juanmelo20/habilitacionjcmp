@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=input, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" placeholder="Escriba una palabra" id="palabra" onblur="evaluar()">
+
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        body{
+            background-color: azure;
+        }
+        input{
+            font-size: 30px;
+            font-family: cursive;
+            border-radius: 5px;
+        }
+    </style>
+    <script>
+
+        function evaluar() {
+            var palabra = $("#palabra").val();
+
+
+
+            if (palabra.length == 0) {
+                Swal.fire('No hay texto en la caja')
+            }
+            else if (palabra.length == 1) {
+                Swal.fire('Caracteres insuficientes')
+
+            }
+            else if (palabra.length > 1) {
+
+                let palabra1 = palabra.split("");
+                let reverpalabra = palabra1.reverse();
+                let joinpalabra = reverpalabra.join("");
+
+                console.log(palabra);
+                console.log(palabra1);
+                console.log(reverpalabra);
+                console.log(joinpalabra);
+
+                if (palabra == joinpalabra) {
+                    Swal.fire('la palabra es igual')
+                } else {
+                    Swal.fire('la palabra  no es igual')
+                }
+            }
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>
